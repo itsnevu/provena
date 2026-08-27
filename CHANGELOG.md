@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ### Fixed
 
+- **`provena mcp serve` now closes the trail on exit** — the server call is wrapped in `try/finally`, so the SQLite handle/WAL is checkpointed and the final buffer flush runs even if `configure()`/`create_server()` raise or `server.run()` returns (#148)
 - **`provena[all]` now installs what the README says it does** — the extra
   resolved to only `yaml,cli,otel`, silently omitting the `postgres`, `mcp` and
   `pdf` extras the README already documented it as including. Framework
