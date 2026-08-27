@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ### Fixed
 
+- **`RetentionEngine` no longer silently caps at 10,000 expired records per run** — `find_expired()` pages through the full result set, so `preview()` and `execute()` act on every expired record instead of only the first batch (#102)
 - **`provena[all]` now installs what the README says it does** — the extra
   resolved to only `yaml,cli,otel`, silently omitting the `postgres`, `mcp` and
   `pdf` extras the README already documented it as including. Framework
