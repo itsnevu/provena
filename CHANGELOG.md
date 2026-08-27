@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ### Fixed
 
+- **`verify_chain()` returns `ChainVerdict(intact=False)` for a `None`/malformed `chain_hash`** instead of raising `TypeError` out of `hmac.compare_digest`, so corrupted or hand-edited records are reported as broken links rather than crashing the audit path (#146)
 - **`provena[all]` now installs what the README says it does** — the extra
   resolved to only `yaml,cli,otel`, silently omitting the `postgres`, `mcp` and
   `pdf` extras the README already documented it as including. Framework
